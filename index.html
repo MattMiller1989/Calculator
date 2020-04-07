@@ -2,42 +2,43 @@
 <html>
     <head>
         <link rel="stylesheet" href="style.css">
-        <script src="calulator.js"></script>
+        
     </head>
     <body>
         <div id="container">
             <p><div id="display">Display will go here</div></p>
             <div id ="buttons">
                 <div class="row" id="top-row">
-                    <button id="clear">AC</button>
+                    <button onclick="clearField()">AC</button>
                     <button id="backspace">Back</button>
-                    <button id="divide">/</button>
+                    <button id="divide" onclick="addOperator('/')">/</button>
                 </div>
                 <p><div class="row">
-                    <button id="7" class="numButt">7</button>
-                    <button id="8" class="numButt">8</button>
-                    <button id="9" class="numButt">9</button>
-                    <button id="mult">x</button>
+                    <button id="7" onclick="placeDigit('7')" class="numButt">7</button>
+                    <button id="8" onclick="placeDigit('8')" class="numButt">8</button>
+                    <button id="9" onclick="placeDigit('9')" class="numButt">9</button>
+                    <button id="mult" onclick="addOperator('x')">x</button>
                     </div></p>
                 <p><div class="row">
-                    <button id="4" class="numButt">4</button>
-                    <button id="5" class="numButt">5</button>
-                    <button id="6" class="numButt">6</button>
-                    <button id="-">-</button>
+                    <button id="4" onclick="placeDigit('4')" class="numButt">4</button>
+                    <button id="5" onclick="placeDigit('5')" class="numButt">5</button>
+                    <button id="6" onclick="placeDigit('6')" class="numButt">6</button>
+                    <button id="minus" onclick="addOperator('-')">-</button>
                 </div></p>
                 <p><div class="row">
-                    <button id="1" class="numButt">1</button>
-                    <button id="2" class="numButt">2</button>
-                    <button id="3" class="numButt">3</button>
-                    <button id="plus">+</button>
+                    <button id="1" onclick="placeDigit('1')" class="numButt">1</button>
+                    <button id="2" onclick="placeDigit('2')" class="numButt">2</button>
+                    <button id="3" onclick="placeDigit('3')" class="numButt">3</button>
+                    <button id="plus" onclick="addOperator('+')">+</button>
                 </div></p>
                 <p></p><div class="row" id="bottom-row">
-                    <button id="0" class="numButt">0</button>
-                    <button id="dot" class="numButt">.</button>
-                    <button id="eq">=</button>
+                    <button id="0" onclick="placeDigit('0')" class="numButt">0</button>
+                    <button id="dot" onclick="placeDigit('.')"  class="numButt">.</button>
+                    <button id="eq" onclick="operate()">=</button>
                 </div></p>
 
             </div>
         </div>
+        <script src="Calculator.js"></script>
     </body>
 </html>
