@@ -14,6 +14,7 @@ function updateText(){
 function placeDigit(num){
     if(isEntering){
     if(num=='.'){
+        console.log(". received")
         if(canAddDec){
             canAddDec=false;
             dispText=dispText+num;
@@ -36,6 +37,7 @@ function clearField(){
     
 }
 function addOperator(op){
+    canAddDec=true;
     if(!isEntering){
         evalText.push(op);
         //isEntering=true;
@@ -52,18 +54,21 @@ function addOperator(op){
     }
 }
     //updateText();
-    console.log(evalText);
+    
 
 }
 function operate(){
+    console.log(evalText);
+    if(evalText.length>1){
+    
     isEntering=false;
     var done=false;
     
-    if(!isNaN(dispText)){
+    if(!(isNaN(dispText))){
         evalText.push(dispText);
     }
     outerLoop:
-    while((evalText.length>2)&&!done){
+    while((evalText.length>1)&&!done){
         for(var ind=0;ind<evalText.length;ind++){
             const currVal=evalText[ind];
             const a=evalText[ind-1];
@@ -94,15 +99,14 @@ function operate(){
             }
             
         }
-    /*if(evalText.length>1){
-        operate();
-    }*/
+    
 }
     if(!done){
     console.log(evalText);
     console.log(evalText.length);
     dispText=evalText[0];
     dispDiv.innerHTML=dispText;
+    }
     }
 }
 function doOperation(a,b,op){
